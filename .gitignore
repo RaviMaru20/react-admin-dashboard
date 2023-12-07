@@ -10,6 +10,7 @@ server/dist/
 
 # Ignore environment-specific files
 client/.env
+client/.env.local
 server/.env
 
 # Ignore log files
