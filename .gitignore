@@ -9,6 +9,8 @@ client/dist/
 server/dist/
 
 # Ignore environment-specific files
+.gitignore
+.env*
 client/.env
 client/.env.local
 server/.env
