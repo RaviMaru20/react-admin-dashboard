@@ -1,0 +1,32 @@
+# Ignore node_modules directory in both client and server
+client/node_modules/
+server/node_modules/
+
+# Ignore built or compiled files
+client/build/
+server/build/
+client/dist/
+server/dist/
+
+# Ignore environment-specific files
+client/.env
+server/.env
+
+# Ignore log files
+client/logs/
+server/logs/
+
+# Ignore any operating system or editor-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Ignore package-lock files
+package-lock.json
+
+# Ignore npm debug log
+npm-debug.log*
+
+# Ignore yarn integrity file
+.yarn-integrity
