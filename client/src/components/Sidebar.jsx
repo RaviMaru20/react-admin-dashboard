@@ -31,7 +31,7 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
-import profileImage from "assets/profileImage.jpg";
+// import profileImage from "assets/profileImage.jpg";
 const navItems = [
   {
     text: "Dashboard",
@@ -210,7 +210,9 @@ const Sidebar = ({
               <Box
                 component="img"
                 alt="profile"
-                src={profileImage}
+                src={
+                  "https://letstryai.com/wp-content/uploads/2023/08/memoji-style-digital-avatar-midjourney.jpg"
+                }
                 height="40px"
                 width="40px"
                 borderRadius="50%"

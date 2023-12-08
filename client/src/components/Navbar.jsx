@@ -6,7 +6,6 @@ import {
   Search,
   SettingsOutlined,
   ArrowDropDownOutlined,
-  SipSharp,
 } from "@mui/icons-material";
 import {
   AppBar,
@@ -23,7 +22,7 @@ import {
 import FlexBetween from "./FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
-import profileImage from "assets/profileImage.jpg";
+
 function Navbar({ user, isSideBarOpen, setIsSideBarOpen }) {
   const theme = useTheme();
   const dispatch = useDispatch();
