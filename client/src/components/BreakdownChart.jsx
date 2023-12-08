@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useGetSalesQuery } from "state/api";
@@ -7,8 +7,19 @@ const BreakdownChart = ({ isDashboard = false }) => {
   const { data, isLoading } = useGetSalesQuery();
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 700px)");
-  if (!data || isLoading) return "Loading...";
+  useEffect(() => {
+    if (!isNonMobile) {
+      // Get the element by class name
+      const element = document.querySelector(".MuiBox-root.css-8tuymw");
 
+      // Check if the element is found before manipulating its style
+      if (element) {
+        // Set the margin to 0
+        element.style.margin = "0.8rem";
+      }
+    }
+  }, [isNonMobile]);
+  if (!data || isLoading) return "Loading...";
   const colors = [
     theme.palette.secondary[500],
     theme.palette.secondary[300],
@@ -102,7 +113,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
             justify: false,
             translateX: isDashboard ? 20 : 0,
             translateY: isDashboard ? 50 : 56,
-            itemsSpacing: isDashboard || !isNonMobile ? 40 : 90,
+            itemsSpacing: isDashboard || !isNonMobile ? 30 : 90,
             itemWidth: 55,
             itemHeight: 18,
             itemTextColor: theme.palette.secondary[200],
@@ -123,7 +134,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
       />
       <Box
         position="absolute"
-        top="50%"
+        top={!isNonMobile && !isDashboard ? "5%" : "50%"}
         left="50%"
         color={theme.palette.primary[100]}
         textAlign="center"
