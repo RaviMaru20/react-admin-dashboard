@@ -127,7 +127,7 @@ const Sidebar = ({
             },
           }}
         >
-          <Box width="100%">
+          <Box width="100%" overflowY="auto">
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
@@ -146,7 +146,7 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                    <Typography key={text} sx={{ m: "1.25rem 0 1rem 3rem" }}>
                       {text}
                     </Typography>
                   );
@@ -203,10 +203,9 @@ const Sidebar = ({
                 );
               })}
             </List>
-          </Box>
-          <Box position="absolute" bottom="2rem">
+
             <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween textTransform="none" gap="1rem" m="1rem 2rem 0 3rem">
               <Box
                 component="img"
                 alt="profile"
@@ -218,16 +217,16 @@ const Sidebar = ({
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
-              <Box textAlign="left">
+              <Box textAlign="left" pt="1rem" pb="2rem">
                 <Typography
                   fontWeight="bold"
-                  fontSize="0.9rem"
+                  fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
                   {user.name}
                 </Typography>
                 <Typography
-                  fontSize="0.8rem"
+                  fontSize="0.7rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
                   {user.occupation}
@@ -236,7 +235,7 @@ const Sidebar = ({
               <SettingsOutlined
                 sx={{
                   color: theme.palette.secondary[300],
-                  fontSize: "25px ",
+                  fontSize: "20px ",
                 }}
               />
             </FlexBetween>
