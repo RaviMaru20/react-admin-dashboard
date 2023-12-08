@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FlexBetween from "components/FlexBetween";
 import Header from "components/Header";
 import {
@@ -26,6 +26,29 @@ const Dashboard = () => {
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery();
   const isNonMobile = useMediaQuery("(min-width: 560px)");
+  useEffect(() => {
+    if (!isNonMobile) {
+      // Get the element by class name
+      const element = document.querySelector(".MuiBox-root.css-8tuymw");
+
+      // Check if the element is found before manipulating its style
+      if (element) {
+        // Set the margin to 0
+        element.style.margin = "0.8rem";
+      }
+
+      // Get the element by class name
+      const toolbarElement = document.querySelector(
+        ".MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-1yo9slo-MuiToolbar-root"
+      );
+
+      // Check if the element is found before manipulating its style
+      if (toolbarElement) {
+        // Set the padding to 0
+        toolbarElement.style.padding = "0";
+      }
+    }
+  }, [isNonMobile]);
 
   const columns = [
     {
@@ -73,7 +96,7 @@ const Dashboard = () => {
             }}
           >
             <DownloadOutlined sx={{ mr: "7px" }} />
-            Download Reports
+            {isNonMobile ? "Download Reports" : "Reports"}
           </Button>
         </Box>
       </FlexBetween>
