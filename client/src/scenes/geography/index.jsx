@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useGetGeographyQuery } from "state/api";
 import Header from "components/Header";
@@ -9,6 +9,18 @@ const Geography = () => {
   const theme = useTheme();
   const { data } = useGetGeographyQuery();
   const isNonMobile = useMediaQuery("(min-width: 700px)");
+  useEffect(() => {
+    if (!isNonMobile) {
+      // Get the element by class name
+      const element = document.querySelector(".MuiBox-root.css-8tuymw");
+
+      // Check if the element is found before manipulating its style
+      if (element) {
+        // Set the margin to 0
+        element.style.margin = "0.8rem";
+      }
+    }
+  }, [isNonMobile]);
 
   return (
     <Box m="1.5rem 2.5rem">
