@@ -25,6 +25,7 @@ const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery();
+  const isNonMobile = useMediaQuery("(min-width: 560px)");
 
   const columns = [
     {
@@ -59,20 +60,19 @@ const Dashboard = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <FlexBetween>
+      <FlexBetween justifyContent="space-between">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
         <Box>
           <Button
             sx={{
               backgroundColor: theme.palette.secondary.light,
               color: theme.palette.background.alt,
-              fontSize: "14px",
+              fontSize: isNonMobile ? "1rem" : "0.65rem",
               fontWeight: "bold",
-              padding: "10px 20px",
+              padding: isNonMobile ? "10px 20px" : "4px 8px",
             }}
           >
-            <DownloadOutlined sx={{ mr: "10px" }} />
+            <DownloadOutlined sx={{ mr: "7px" }} />
             Download Reports
           </Button>
         </Box>

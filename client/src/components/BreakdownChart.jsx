@@ -63,7 +63,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
           legends: {
             text: {
               fill: theme.palette.secondary[200],
-              fontSize: isDashboard ? 10 : 18,
+              fontSize: isDashboard || !isNonMobile ? 10 : 18,
             },
           },
           tooltip: {
@@ -102,13 +102,13 @@ const BreakdownChart = ({ isDashboard = false }) => {
             justify: false,
             translateX: isDashboard ? 20 : 0,
             translateY: isDashboard ? 50 : 56,
-            itemsSpacing: isDashboard ? 40 : 90,
+            itemsSpacing: isDashboard || !isNonMobile ? 40 : 90,
             itemWidth: 55,
             itemHeight: 18,
             itemTextColor: theme.palette.secondary[200],
             itemDirection: "left-to-right",
             itemOpacity: 1,
-            symbolSize: isDashboard ? 10 : 18,
+            symbolSize: isDashboard || !isNonMobile ? 10 : 18,
             symbolShape: "circle",
             effects: [
               {

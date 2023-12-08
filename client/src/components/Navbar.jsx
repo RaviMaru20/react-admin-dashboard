@@ -17,6 +17,7 @@ import {
   MenuItem,
   Toolbar,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import FlexBetween from "./FlexBetween";
@@ -30,6 +31,8 @@ function Navbar({ user, isSideBarOpen, setIsSideBarOpen }) {
   const isOpen = Boolean(anchorEl);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+
+  const isNonMobile = useMediaQuery("(min-width: 700px)");
 
   return (
     <AppBar
@@ -45,17 +48,19 @@ function Navbar({ user, isSideBarOpen, setIsSideBarOpen }) {
           <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
             <MenuIcon />
           </IconButton>
-          <FlexBetween
-            backgroundColor={theme.palette.background.alt}
-            borderRadius="9px"
-            gap="3rem"
-            p="0.1rem 1.5rem"
-          >
-            <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
+          {isNonMobile ? (
+            <FlexBetween
+              backgroundColor={theme.palette.background.alt}
+              borderRadius="9px"
+              gap="3rem"
+              p="0.1rem 1.5rem"
+            >
+              <InputBase placeholder="Search..." />
+              <IconButton>
+                <Search />
+              </IconButton>
+            </FlexBetween>
+          ) : null}
         </FlexBetween>
 
         {/* RIGHT SIDE */}
@@ -68,9 +73,11 @@ function Navbar({ user, isSideBarOpen, setIsSideBarOpen }) {
               <DarkModeOutlined sx={{ fontSize: "25px" }} />
             )}
           </IconButton>
-          <IconButton>
-            <SettingsOutlined sx={{ fontSize: "25px" }} />
-          </IconButton>
+          {isNonMobile ? (
+            <IconButton>
+              <SettingsOutlined sx={{ fontSize: "25px" }} />
+            </IconButton>
+          ) : null}
           <FlexBetween>
             <Button
               onClick={handleClick}

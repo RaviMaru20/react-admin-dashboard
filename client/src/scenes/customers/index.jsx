@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useGetCustomersQuery } from "state/api";
 import Header from "components/Header";
 import { DataGrid } from "@mui/x-data-grid";
@@ -8,7 +8,8 @@ const Customers = () => {
   const theme = useTheme();
   const { data, isLoading } = useGetCustomersQuery();
 
-  const columns = [
+  const isNonMobile = useMediaQuery("(min-width: 700px)");
+  let columns = [
     {
       field: "_id",
       headerName: "ID",
@@ -56,6 +57,13 @@ const Customers = () => {
       flex: 0.25,
     },
   ];
+  if (!isNonMobile) {
+    // If isNonMobile is false (meaning it's not a non-mobile view)
+    // Keep only the specified columns
+    columns = columns.filter((column) =>
+      ["email", "name", "role"].includes(column.field)
+    );
+  }
 
   return (
     <Box m="1.5rem 2.5rem">
