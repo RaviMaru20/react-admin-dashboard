@@ -86,7 +86,9 @@ function Navbar({ user, isSideBarOpen, setIsSideBarOpen }) {
               <Box
                 component="img"
                 alt="profile"
-                src={profileImage}
+                src={
+                  "https://letstryai.com/wp-content/uploads/2023/08/memoji-style-digital-avatar-midjourney.jpg"
+                }
                 height="35px"
                 width="35px"
                 borderRadius="50%"
