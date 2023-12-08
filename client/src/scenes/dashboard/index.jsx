@@ -50,7 +50,7 @@ const Dashboard = () => {
     }
   }, [isNonMobile]);
 
-  const columns = [
+  let columns = [
     {
       field: "_id",
       headerName: "ID",
@@ -80,6 +80,13 @@ const Dashboard = () => {
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
   ];
+  if (!isNonMobile) {
+    // If isNonMobile is false (meaning it's not a non-mobile view)
+    // Keep only the specified columns
+    columns = columns.filter((column) =>
+      ["userId", "products", "cost"].includes(column.field)
+    );
+  }
 
   return (
     <Box m="1.5rem 2.5rem">
