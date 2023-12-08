@@ -169,7 +169,9 @@ const Sidebar = ({
                   >
                     <ListItemButton
                       onClick={() => {
-                        setIsSideBarOpen(!isSideBarOpen);
+                        if (!isNonMobile) {
+                          setIsSideBarOpen(!isSideBarOpen);
+                        }
                         navigate(`/${lcText}`);
                         setActive(lcText);
                       }}
