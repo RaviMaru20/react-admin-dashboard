@@ -27,13 +27,16 @@ import {
 } from "./data/index.js";
 
 /* CONFIGURATION */
+const allowedOrigins = ['https://millenials-dashboard.netlify.app'];
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins
+}));
 // const corsOptions = {
 //   origin: "https://millenials-dashboard.netlify.app",
 //   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
