@@ -27,7 +27,6 @@ import {
 } from "./data/index.js";
 
 /* CONFIGURATION */
-const allowedOrigins = ['https://millenials-dashboard.netlify.app'];
 dotenv.config();
 const app = express();
 app.use(express.json());

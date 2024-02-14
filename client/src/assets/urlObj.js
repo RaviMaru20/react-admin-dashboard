@@ -1,1 +1,1 @@
-export const API_URL = 'https://runtime-pda-despite-gg.trycloudflare.com';
+export const API_URL = 'https://omissions-sample-pine-specific.trycloudflare.com/dashboard';
