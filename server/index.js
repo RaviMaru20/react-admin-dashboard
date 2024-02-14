@@ -35,7 +35,10 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(cors({
-  origin: allowedOrigins
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 // const corsOptions = {
 //   origin: "https://millenials-dashboard.netlify.app",
